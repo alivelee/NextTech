@@ -1,14 +1,43 @@
 import React from 'react';
-import Link from 'next/link';
-import navStyle from '../styles/navStyle';
-export default (props) => (
-  <nav>
-    <ul>
-      <li><i className="fa fa-home" aria-hidden="true"></i><Link href='/topics'><a>Topics</a></Link></li>
-      <li><i className="fa fa-archive" aria-hidden="true"></i><Link href='/collections'><a>Collections</a></Link></li>
-      <li><i className="fa fa-clipboard" aria-hidden="true"></i><Link href='/posts'><a>Posts</a></Link></li>
-      <li><i className="fa fa-commenting" aria-hidden="true"></i><Link href='/comments'><a>Comments</a></Link></li>
-    </ul>
-    <style jsx>{navStyle}</style>
-  </nav>
+import styled from 'styled-components';
+const Nav = styled.nav`
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  padding: 10px;
+  background-color: #1E1E1E;
+  color: white;
+  margin-right: 50px;
+  width: 90px;
+  height: 100vh;
+`;
+const Ul = styled.ul`
+  margin: 0;
+  padding: 0;
+`;
+const Navlist = styled.li`
+  display: block;
+  list-style: none;
+  height: 40px;
+  line-height: 40px;
+  margin: 20px 0;
+`;
+const Link = styled.a`
+  display: inline-block;
+  text-decoration: none;
+  padding-left: 5px;
+  color: ${props => props.active ? 'red' : 'white'};
+`;
+const NavBar = (props) => (
+  <Nav>
+    <Ul>
+      <Navlist><Link href='/topics' active={props.fromType === 'topics'}>topics</Link></Navlist>
+      <Navlist><Link href='/collections' active={props.fromType === 'collections'}>collections</Link></Navlist>
+      <Navlist><Link href='/posts' active={props.fromType === 'posts'}>posts</Link></Navlist>
+      <Navlist><Link href='/comments' active={props.fromType === 'comments'}>comments</Link></Navlist>
+    </Ul>
+  </Nav>
 );
+
+export default NavBar;
