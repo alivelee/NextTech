@@ -9,7 +9,7 @@ export default css`
     background-color: #1E1E1E;
     color: white;
     margin-right: 50px;
-    width: 40px;
+    width: 90px;
     height: 100vh;
   }
   nav ul {
@@ -23,11 +23,13 @@ export default css`
     line-height: 40px;
     margin: 20px 0;
   }
+  nav ul li:hover {
+    cursor:pointer;
+  }
   nav ul li a {
     display: inline-block;
     text-decoration: none;
     padding-left: 5px;
-    display: none;
   }
   nav i {
     font-size: 1.8rem;

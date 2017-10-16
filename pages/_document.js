@@ -24,7 +24,7 @@ export default class MyDocument extends Document {
         <body>
           {main}
           <NextScript />
-          <script src="https://use.fontawesome.com/a8fab5f238.js"></script>
+          {/* <script src="https://use.fontawesome.com/a8fab5f238.js"></script> */}
         </body>
       </html>
     )

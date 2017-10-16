@@ -1,23 +1,26 @@
 import React from 'react';
-import getCollections from '../utility/apiRequest';
+import { getTopics } from '../utility/apiRequest';
 import { getCookie } from '../utility/cookie';
 import Layout from '../component/Layout';
-
-export default class Collections extends React.Component {
+import Topicitem from '../component/Topicitem'
+export default class topics extends React.Component {
   static async getInitialProps({ req }) {
     const token = getCookie('token', req.headers.cookie);
     console.log('page'+token);
     console.log('cookie'+req.headers.cookie)
-    const postInfoJson = await getCollections.default(token).then(response => response.data);
+    const topicTrendingJson = await getTopics.trending(token).then(response => response.data);
     return {
-      postInfoJson
+      topicTrendingJson
     };
   }
   render() {
-    const post = this.props.postInfoJson.posts;
+    const trendTopics = this.props.topicTrendingJson.topics;
     return (
       <Layout fromType='topics'>
-        topics
+        <h1>Trending Topics</h1>
+        {
+          trendTopics.map( item => <Topicitem topic={item} key={item.id}/>)
+        }
       </Layout>
     );
   }

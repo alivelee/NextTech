@@ -12,7 +12,7 @@ export default class Layout extends React.Component {
     const { children } = this.props;
     return (
       <Wrapper>
-        <NavBar />
+        <NavBar fromType={this.props.fromType}/>
         <Container>
           { children }
         </Container>
