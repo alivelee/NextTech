@@ -1,4 +1,5 @@
 import React from 'react';
+import Error from 'next/error';
 import { getTopics } from '../utility/apiRequest';
 import { getCookie } from '../utility/cookie';
 import Layout from '../component/Layout';
@@ -8,16 +9,20 @@ export default class topics extends React.Component {
     const token = getCookie('token', req.headers.cookie);
     console.log('page'+token);
     console.log('cookie'+req.headers.cookie)
-    const topicTrendingJson = await getTopics.trending(token).then(response => response.data);
+    const topicTrendingJson = await getTopics.trending(token);
+    const topicTrendData = topicTrendingJson.data;
+    console.log(topicTrendingJson.status);
     return {
-      topicTrendingJson
+      topicTrendData
     };
   }
+  state = {
+    title: 'Trending'
+  }
   render() {
-    const trendTopics = this.props.topicTrendingJson.topics;
+    const trendTopics = this.props.topicTrendData.topics;
     return (
-      <Layout fromType='topics'>
-        <h1>Trending Topics</h1>
+      <Layout fromType='topics' title={this.state.title}>
         {
           trendTopics.map( item => <Topicitem topic={item} key={item.id}/>)
         }

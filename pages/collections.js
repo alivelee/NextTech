@@ -11,7 +11,6 @@ export default class Collections extends React.Component {
     console.log('cookie'+req.headers.cookie);
     const collectionsJson = await getCollections.default(token).then(response => response.data);
     const featuredCollectionsJson = await getCollections.featured(token).then(response => response.data);
-    
     return {
       collectionsJson,
       featuredCollectionsJson

@@ -1,5 +1,5 @@
 import React from 'react';
-import getCollections from '../utility/apiRequest';
+import { getComments } from '../utility/apiRequest';
 import { getCookie } from '../utility/cookie';
 import Layout from '../component/Layout';
 
@@ -8,13 +8,13 @@ export default class Collections extends React.Component {
     const token = getCookie('token', req.headers.cookie);
     console.log('page'+token);
     console.log('cookie'+req.headers.cookie)
-    const postInfoJson = await getCollections.default(token).then(response => response.data);
+    const commentInfoJson = await getComments.latest(token).then(response => response.data);
     return {
-      postInfoJson
+      commentInfoJson
     };
   }
   render() {
-    const post = this.props.postInfoJson.posts;
+    const post = this.props.commentInfoJson.comments;
     return (
       <Layout fromType='comments'>
         comments

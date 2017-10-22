@@ -5,6 +5,16 @@ export function formatDate(date) {
   let newYear = newDate.getFullYear();
   let newHour = newDate.getHours();
   let newMinute = newDate.getMinutes();
-  let newSecond = newDate.getSeconds(); 
-  return `${newYear}-${('0' + newMonth).slice(-2)}-${('0' + newDay).slice(-2)} ${('0' + newHour).slice(-2)}:${('0' + newMinute).slice(-2)}:${('0' + newSecond).slice(-2)}`;
+  let newSecond = newDate.getSeconds();
+  return `
+    ${newYear}/${('0' + newMonth).slice(-2)}/${('0' + newDay).slice(-2)}
+  `;
+  // return {
+  //   getComputedDay(){
+  //     return `${newYear}/${('0' + newMonth).slice(-2)}/${('0' + newDay).slice(-2)}`;
+  //   },
+  //   getTimeDetail(){ 
+  //     return `${newYear}/${('0' + newMonth).slice(-2)}/${('0' + newDay).slice(-2)} ${('0' + newHour).slice(-2)}:${('0' + newMinute).slice(-2)}:${('0' + newSecond).slice(-2)}`;
+  //   }    
+  // }
 }

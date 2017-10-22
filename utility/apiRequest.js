@@ -53,7 +53,7 @@ const getTopics = {
 }
 
 const getPosts = {
-  getTodayPosts: (token) => {
+  todayPosts: (token) => {
     const url = `${baseUrl}/v1/me/feed`;
     return axios({
       method: 'get',
@@ -80,5 +80,6 @@ const getComments = {
 export {
   getCollections,
   getTopics,
-  getPosts
+  getPosts,
+  getComments
 }
