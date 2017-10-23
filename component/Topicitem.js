@@ -11,12 +11,15 @@ const TopicInfoWrapper = styled.figcaption`
   height: 100%;
   color: white;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   transition: background-color 0.5s;
 `;
 const TopicInfo = styled.div`
-  padding: 2rem;
-
+  transform: translate3d(0,200px,0);
+  transition: transform 0.4s ease-in-out;
+  text-align: center;
 `;
 const TopicLink = styled.a`
   z-index: 1000;
@@ -28,6 +31,9 @@ const TopicLink = styled.a`
 const Name = styled.h3`
   transform: translate3d(0,20px,0);
   transition: transform 0.35s, color 0.4s;
+  color: grey;
+  font-weight: 100;
+  align-self: center;
 `;
 const Time = styled.div`
   opacity:0;
@@ -36,6 +42,10 @@ const Time = styled.div`
   span {
     color:white;
   }
+`;
+const Others = styled.div`
+  opacity:0;
+  transition: all 0.6s;
 `;
 const TopicItem = (props) => {
   let name = props.topic.name;
@@ -68,21 +78,23 @@ const TopicItem = (props) => {
     &:hover div ,
     &:hover span{
       opacity: 1;
+      transform: translate3d(0,0,0);
     }
     &:hover figcaption {
-      background-color:red;
+      background-color:black;
+      color: white;
     }
   `;
   return (
     <Topic>
       <TopicImage src={backgroundImage} alt="topic image"/>
       <TopicInfoWrapper>
+        <Name>{name}</Name>
         <TopicInfo>
-          <Name>{name}</Name>
           <Time><span>Create At</span>{formatDate(createTime)}</Time>
           <Time><span>Update At</span>{formatDate(updateTime)}</Time>
-          <span>{follower} followers</span>
-          <span>{postCount} posts</span>
+          <Others>{follower} followers</Others>
+          <Others>{postCount} posts</Others>
         </TopicInfo>
         <TopicLink />
       </TopicInfoWrapper>
