@@ -1,5 +1,10 @@
 import axios from 'axios';
 const baseUrl = 'https://api.producthunt.com'
+// axios.interceptors.response.use((response) => {
+//   return response;
+// }, function (error) {
+//   return Promise.reject(error.response);
+// });
 const getCollections = {
   default: (token) => {
     const url = `${baseUrl}/v1/collections`;
