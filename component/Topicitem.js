@@ -91,10 +91,9 @@ const TopicItem = (props) => {
       <TopicInfoWrapper>
         <Name>{name}</Name>
         <TopicInfo>
-          <Time><span>Create At</span>{formatDate(createTime)}</Time>
-          <Time><span>Update At</span>{formatDate(updateTime)}</Time>
-          <Others>{follower} followers</Others>
-          <Others>{postCount} posts</Others>
+          <Time><span>Updated</span>{formatDate(updateTime)}</Time>
+          {/* <Others>{follower} followers</Others>
+          <Others>{postCount} posts</Others> */}
         </TopicInfo>
         <TopicLink />
       </TopicInfoWrapper>

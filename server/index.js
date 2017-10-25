@@ -8,7 +8,7 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-const { getToken } = require('./middlewares');
+const { getToken,getUser } = require('./middlewares');
 app.prepare().then( () => {
   const server = express();
   server.use(bodyParser.urlencoded({ extended: true }));
@@ -21,6 +21,10 @@ app.prepare().then( () => {
   server.get('/posts', [getToken], (req, res) => app.render(req, res, '/posts', req.query));
   server.get('/topics', [getToken], (req, res) => app.render(req, res, '/topics', req.query));
   server.get('/comments', [getToken], (req, res) => app.render(req, res, '/comments', req.query));
+  server.get('/login', (req, res) => app.render(req, res, '/login', req.query));
+  server.get('/authUser',[getUser], (req, res) => {
+    return res.redirect('/posts');
+  });
   
   server.get('*', (req, res) => handle(req, res));
   server.listen(port, err => {

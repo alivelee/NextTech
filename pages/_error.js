@@ -7,17 +7,24 @@ export default class Error extends React.Component {
       : jsonPageRes ? jsonPageRes : null
     return { statusCode }
   }
-  componentDidMount() {
-    console.log('shows');
-  }
   render() {
-    return (
-      <p>
-        {/* {this.props.message
-          ? `An error ${this.props.message} occurred on server`
-          : 'An error occurred on client'} */}
-          error
-      </p>
-    )
+    const status = this.props.statusCode;
+    console.log(status)
+    if (status === '401') {
+      return (
+        <div>
+          You Need to Login in to see your feed
+        </div>
+      );
+    } else {
+      return (
+        <p>
+          {/* {this.props.message
+            ? `An error ${this.props.message} occurred on server`
+            : 'An error occurred on client'} */}
+            error
+        </p>
+      )
+    }
   }
 }

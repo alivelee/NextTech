@@ -7,7 +7,7 @@ export function formatDate(date) {
   let newMinute = newDate.getMinutes();
   let newSecond = newDate.getSeconds();
   return `
-    ${newYear}/${('0' + newMonth).slice(-2)}/${('0' + newDay).slice(-2)}
+    ${newYear}.${('0' + newMonth).slice(-2)}.${('0' + newDay).slice(-2)}
   `;
   // return {
   //   getComputedDay(){

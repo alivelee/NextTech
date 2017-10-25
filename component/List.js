@@ -3,19 +3,32 @@ import { formatDate } from '../utility/date';
 import { CollectionImage } from '../styles/components/image';
 import styled from 'styled-components';
 import { CardShadow } from '../styles/theme';
-import { Link } from '../styles/components/Link';
+import { TitleLink } from '../styles/components/Link';
+import Icon from '../styles/components/Icon';
 const Collection = styled.section`
-  box-shadow: ${CardShadow.medium};
-  min-width: 500px;
-  max-width: 600px;
-  margin: 20px 5%;
+  font-size: 14px;
+  width: 100%;
+  // min-width: 200px;
+  // max-width: 300px;
+  margin: 0px;
   position:relative;
-  min-height: 300px;
+  // min-height: 300px;
   display: flex;
-  flex-direction: column;
+  padding: 10px 0;
+  vertical-align:middle;
+  border: 1px solid black;
 `;
 const CollectionInfo = styled.div`
   
+`;
+const PostNumber = styled.div`
+  line-height: 30px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: baseline;
+`;
+const Time = styled.span`
+  text-align: right;
 `;
 const List = (props) => {
   let name = props.collections.name;
@@ -26,12 +39,12 @@ const List = (props) => {
   let backgroundImage = props.collections.background_image_url;
   return (
     <Collection>
-      { backgroundImage && <CollectionImage src={backgroundImage} alt="image-for-collection"/>}
+      {/* { backgroundImage && <CollectionImage src={backgroundImage} alt="image-for-collection"/>} */}
       <CollectionInfo>
-        <Link href={link}>{name}</Link>
-        <div>create at {formatDate(createTime)}</div>
-        <div>update at {formatDate(updateTime)}</div>
-        <span> {postCount} {postCount > 1 ? 'posts': 'post'}</span>
+        <PostNumber><Icon size='18px' name='class' />{postCount} {postCount > 1 ? 'Posts': 'Post'}</PostNumber>
+        <TitleLink href={link} >{name}</TitleLink>
+        <Time><Icon name='event' size='18px' />{formatDate(createTime)}</Time>
+        {/* <div>update at {formatDate(updateTime)}</div> */}
       </CollectionInfo>
     </Collection>
   )

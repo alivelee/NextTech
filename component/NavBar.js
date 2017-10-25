@@ -34,7 +34,7 @@ const NavBar = (props) => (
       <Navlist><Link href='/topics' active={props.fromType === 'topics'}>topics</Link></Navlist>
       <Navlist><Link href='/collections' active={props.fromType === 'collections'}>collections</Link></Navlist>
       <Navlist><Link href='/posts' active={props.fromType === 'posts'}>posts</Link></Navlist>
-      <Navlist><Link href='/comments' active={props.fromType === 'comments'}>comments</Link></Navlist>
+      {/* <Navlist><Link href='/comments' active={props.fromType === 'comments'}>comments</Link></Navlist> */}
     </Ul>
   </Nav>
 );

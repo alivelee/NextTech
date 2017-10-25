@@ -7,20 +7,23 @@ import Layout from '../component/Layout';
 
 export default class Posts extends React.Component {
   static async getInitialProps({ req }) {
-    let errorStatus,postInfoJson,error;
+    let errorStatus,postInfoJson,error,postData;
     const token = getCookie('token', req.headers.cookie);
     console.log(typeof test);
     console.log('page'+token);
     console.log('cookie'+req.headers.cookie);
     try {
-      const postInfoJson = await getPosts.todayPosts(token);      
+      const postInfoJson = await getPosts.todayPosts(token);
+      postData = await postInfoJson.data;
+      console.log(postData);      
     } catch (err) {
       error = JSON.stringify(err.response.status);
       console.log(typeof err.response);
     }
     console.log('awaited');
     return {
-      error
+      error,
+      postData
     };
   }
   render() {
