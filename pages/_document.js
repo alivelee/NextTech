@@ -20,6 +20,7 @@ export default class MyDocument extends Document {
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <link rel="stylesheet" href="/static/normalize.css" />
           <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
           {styleTags}
         </Head>
         <body>

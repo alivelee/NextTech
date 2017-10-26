@@ -11,12 +11,16 @@ export default class Error extends React.Component {
   }
   render() {
     const status = this.props.statusCode;
-    console.log(status)
+    console.log(status);
     if (status === '401') {
       return (
         <div>
           <article>You Need to Login in to see your feed</article>
-          <Button href="/login">Login</Button>  
+          <Button 
+            href="/login" 
+            padding='0.8em'
+            href={`${OAUTH_USER_URL}authorize?client_id=${USER_API_KEY}&redirect_uri=${REDIRECT_URL}&response_type=code&scope=public+private`}
+          >Login</Button>  
         </div>
       );
     } else {
