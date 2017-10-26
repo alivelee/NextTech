@@ -30,7 +30,7 @@ export default class Posts extends React.Component {
     const { error,postData } = this.props;
     return (
       <Layout fromType='posts' error={error}>
-        {postData.posts.map( item => <PostList listContent={item} key={item.id}></PostList>)}
+        {!error && postData.posts.map( item => <PostList listContent={item} key={item.id}></PostList>)}
       </Layout>
     );
   }
