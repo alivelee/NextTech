@@ -2,7 +2,7 @@ import React from 'react';
 import { getCollections } from '../utility/apiRequest';
 import { getCookie } from '../utility/cookie';
 import Layout from '../component/Layout';
-import List from '../component/List';
+import { List } from '../component/List';
 
 export default class Collections extends React.Component {
   static async getInitialProps({ req }) {
@@ -21,7 +21,7 @@ export default class Collections extends React.Component {
     const featuredCollections = this.props.featuredCollectionsJson.collections;
     return (
       <Layout fromType='collections'>
-        {featuredCollections.map(item => <List collections={item} key={item.id}/> )}
+        {featuredCollections.map(item => <List listContent={item} key={item.id}/> )}
       </Layout>
     );
   }

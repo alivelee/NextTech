@@ -20,6 +20,7 @@ const TopicInfo = styled.div`
   transform: translate3d(0,200px,0);
   transition: transform 0.4s ease-in-out;
   text-align: center;
+  padding: 0 2em;  
 `;
 const TopicLink = styled.a`
   z-index: 1000;
@@ -47,11 +48,13 @@ const Others = styled.div`
   opacity:0;
   transition: all 0.6s;
 `;
+const Description = styled.div`
+  opacity:0;
+  transition: all 0.6s;
+`;
 const TopicItem = (props) => {
-  let name = props.topic.name;
-  let slug = props.topic.slug;
+  let { name, description } = props.topic;
   let createTime = props.topic.created_at;
-  let description = props.topic.description;
   let follower = props.topic.followers_count
   let postCount = props.topic.posts_count;
   let updateTime = props.topic.updated_at;
@@ -59,12 +62,12 @@ const TopicItem = (props) => {
   const Topic = styled.figure`
     display:inline-block;
     position: relative;
-    max-width: 356px;
-    max-height: 356px;
+    max-width: 390px;
+    max-height: 390px;
     cursor: pointer;
     background: ${theme.topicHover};
     flex: 1 1 auto;
-    margin: 10px 1%;
+    margin: 20px 1%;
     overflow: hidden;
     span {
       opacity: 0;
@@ -91,9 +94,10 @@ const TopicItem = (props) => {
       <TopicInfoWrapper>
         <Name>{name}</Name>
         <TopicInfo>
-          <Time><span>Updated</span>{formatDate(updateTime)}</Time>
+          <Description>{description}</Description>
           {/* <Others>{follower} followers</Others>
           <Others>{postCount} posts</Others> */}
+          <Time>Updated at{formatDate(updateTime)}</Time>
         </TopicInfo>
         <TopicLink />
       </TopicInfoWrapper>

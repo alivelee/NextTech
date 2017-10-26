@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 const Nav = styled.nav`
-  top: -1px;
+  top: 0px;
   left: 0px;
   bottom: 0px;
   position: sticky;
@@ -34,6 +34,7 @@ const NavBar = (props) => (
       <Navlist><Link href='/topics' active={props.fromType === 'topics'}>topics</Link></Navlist>
       <Navlist><Link href='/collections' active={props.fromType === 'collections'}>collections</Link></Navlist>
       <Navlist><Link href='/posts' active={props.fromType === 'posts'}>posts</Link></Navlist>
+      <Navlist><Link href='/user' active={props.fromType === 'user'}>user</Link></Navlist>
       {/* <Navlist><Link href='/comments' active={props.fromType === 'comments'}>comments</Link></Navlist> */}
     </Ul>
   </Nav>

@@ -1,4 +1,6 @@
 import React from 'react'
+import { OAUTH_USER_URL,USER_API_KEY,REDIRECT_URL } from '../utility/api'
+import { Button } from '../styles/components/Button';
 
 export default class Error extends React.Component {
   static getInitialProps({ res, jsonPageRes }) {
@@ -13,7 +15,8 @@ export default class Error extends React.Component {
     if (status === '401') {
       return (
         <div>
-          You Need to Login in to see your feed
+          <article>You Need to Login in to see your feed</article>
+          <Button href="/login">Login</Button>  
         </div>
       );
     } else {

@@ -82,9 +82,22 @@ const getComments = {
     });
   }
 }
+const getUser = {
+  myself: (token) => {
+    const url = `${baseUrl}/v1/me`;
+    return axios({
+      method: 'get',
+      url: url,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }, 
+    });
+  }
+}
 export {
   getCollections,
   getTopics,
   getPosts,
-  getComments
+  getComments,
+  getUser
 }
