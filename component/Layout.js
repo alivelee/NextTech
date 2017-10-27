@@ -10,6 +10,9 @@ export default class Layout extends React.Component {
   static propTypes = {
     children: PropTypes.element.isRequired,
   };
+  state = {
+    devicesWidth: null    
+  }
   renderChildren() {
     const { children, error } = this.props;
     if (error) {
@@ -20,14 +23,19 @@ export default class Layout extends React.Component {
       return children
     }
   }
+  componentDidMount() {
+    let width = document.documentElement.clientWidth;
+    this.setState({
+      devicesWidth: width
+    });
+  }
   render() {
     
     return (
       <Wrapper>
-        <NavBar fromType={this.props.fromType} />
+        { ( this.state.devicesWidth > 750 ) && <NavBar fromType={this.props.fromType} />}
         <Container>
-          <Header title={this.props.title} />
-          <MainContent>
+          <MainContent padding={this.props.padding}>
             { this.renderChildren() }
           </MainContent>
         </Container>

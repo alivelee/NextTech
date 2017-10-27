@@ -17,7 +17,7 @@ export default class MyDocument extends Document {
       <html lang="en">
         <Head>
           <title>NextTech</title>
-          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1, width=device-width" />
           <link rel="stylesheet" href="/static/normalize.css" />
           <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
           <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
@@ -26,6 +26,7 @@ export default class MyDocument extends Document {
         <body>
           {main}
           <NextScript />
+          <script src='../static/initialRem.js'></script>
           {/* <script src="https://use.fontawesome.com/a8fab5f238.js"></script> */}
         </body>
       </html>
