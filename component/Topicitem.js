@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { theme } from '../styles/theme';
-import { formatDate } from '../utility/date';
+import { formatDate, fromNow } from '../utility/date';
 import { TopicImage } from '../styles/components/image';
 const TopicInfoWrapper = styled.figcaption`
   position: absolute;
@@ -37,6 +37,7 @@ const Name = styled.h3`
   align-self: center;
 `;
 const Time = styled.div`
+  margin-top: 30px;
   opacity:0;
   transition: opacity 0.4s;
   letter-spacing: 1px;
@@ -51,6 +52,8 @@ const Others = styled.div`
 const Description = styled.div`
   opacity:0;
   transition: all 0.6s;
+  line-height: 1.5;
+  margin: 10px 0;
 `;
 const TopicItem = (props) => {
   let { name, description } = props.topic;
@@ -60,13 +63,12 @@ const TopicItem = (props) => {
   let updateTime = props.topic.updated_at;
   let backgroundImage = props.topic.image;
   const Topic = styled.figure`
-    display:inline-block;
     position: relative;
-    max-width: 390px;
-    max-height: 390px;
+    // max-width: 390px;
+    max-height: 450px;
     cursor: pointer;
     background: ${theme.topicHover};
-    flex: 1 1 auto;
+    flex: 1 1 300px;
     margin: 20px 1%;
     overflow: hidden;
     span {
@@ -87,6 +89,9 @@ const TopicItem = (props) => {
       background-color:black;
       color: white;
     }
+    &::last-child {
+      align-self: flex-start;
+    }
   `;
   return (
     <Topic>
@@ -97,7 +102,7 @@ const TopicItem = (props) => {
           <Description>{description}</Description>
           {/* <Others>{follower} followers</Others>
           <Others>{postCount} posts</Others> */}
-          <Time>Updated at{formatDate(updateTime)}</Time>
+          <Time>Updated at {fromNow(updateTime)} ago</Time>
         </TopicInfo>
         <TopicLink />
       </TopicInfoWrapper>
