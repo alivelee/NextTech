@@ -7,7 +7,7 @@ const Image = styled.img`
 const TopicImage = Image.extend`
   max-width: none;
   width: calc(100% + 60px);
-  height: 356px;
+  min-height: 100%;
   opacity: 0.3;
   transform: translate3d(-40px,0,0);
   transition: transform 0.4s;

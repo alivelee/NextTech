@@ -1,15 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 const Nav = styled.nav`
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
   position: sticky;
+  top: 15px;
   padding: 10px;
   background-color: #1E1E1E;
   color: white;
-  width: 90px;
-  height: 100vh;
+  width: 100px;
+  font-size: 0.16rem;
 `;
 const Ul = styled.ul`
   margin: 0;
