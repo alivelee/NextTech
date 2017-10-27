@@ -28,7 +28,7 @@ export default class Layout extends React.Component {
         <Container>
           <Header title={this.props.title} />
           <MainContent>
-          { this.renderChildren() }
+            { this.renderChildren() }
           </MainContent>
         </Container>
       </Wrapper>
