@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   text-align: center;
 `;
 const Info = styled.p`
-  font-size: 14px;
+  font-size: 0.2rem;
   color: #BDBDBD;  
 `;
 export {

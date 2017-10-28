@@ -6,6 +6,8 @@ import { Container } from '../styles/components/Container';
 import NavBar from '../component/NavBar';
 import Header from '../styles/components/Header'
 import { MainContent } from '../styles/components/Content';
+import NavTrigger from '../styles/components/NavTrigger';
+
 export default class Layout extends React.Component {
   static propTypes = {
     children: PropTypes.element.isRequired,
@@ -33,6 +35,7 @@ export default class Layout extends React.Component {
     
     return (
       <Wrapper>
+        { ( this.state.devicesWidth <= 750 ) && <NavTrigger /> }
         { ( this.state.devicesWidth > 750 ) && <NavBar fromType={this.props.fromType} />}
         <Container>
           <MainContent padding={this.props.padding}>

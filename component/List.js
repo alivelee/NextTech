@@ -6,17 +6,19 @@ import { CardShadow } from '../styles/theme';
 import { TitleLink } from '../styles/components/Link';
 import Icon from '../styles/components/Icon';
 import { Image } from '../styles/components/image';
-const Wrapper = styled.section`
+const Wrapper = styled.section.attrs({
+  paddingLeft: props => props.paddingLeft || '0.3rem'
+})`
   font-size: 0.2rem;
   width: 100%;
   // min-width: 200px;
   // max-width: 300px;
-  margin: 0px;
+  margin: 0.2rem;
   position:relative;
   // min-height: 300px;
-  padding: 0.3rem 0.2rem 0.1rem 0.3rem;
+  padding-left: ${props => props.paddingLeft};
   vertical-align:middle;
-  border: 1px solid black;
+  box-shadow: ${CardShadow.spread};
 `;
 const Info = styled.div`
   display: flex;
@@ -30,10 +32,7 @@ const Info = styled.div`
       margin-left: 0px;
     }
     div {
-      margin: 30px 0;
-    }
-    .time {
-      margin-top: 50px;
+      margin: 0.2rem 0;
     }
   }
 `;
@@ -49,8 +48,12 @@ const Time = styled.div`
     margin-left: 0.4rem;
   }
 `;
+const Description = styled.div`
+  font-size: 0.2rem;
+  color: #3A454F;
+`;
 const List = (props) => {
-  let { name, subscriber_count } = props.listContent;
+  let { name, subscriber_count,title } = props.listContent;
   let link = props.listContent.collection_url;
   let createTime = props.listContent.created_at;
   let updateTime = props.listContent.updated_at;
@@ -62,6 +65,7 @@ const List = (props) => {
       <Info>
         <PostNumber><Icon size='24px' name='class' />{postCount} {postCount > 1 ? 'Posts': 'Post'}</PostNumber>
         <TitleLink href={link} >{name}</TitleLink>
+        <Description>{title}</Description>
         <Time className='time'><Icon name='event' size='24px' />{fromNow(createTime)} ago <span><span className='people'>{subscriber_count} People Followed</span></span></Time>
         {/* <div>update at {formatDate(updateTime)}</div> */}
       </Info>
@@ -76,7 +80,7 @@ const PostList = (props) => {
   let commentsNumber = props.listContent.comments_count;
   let createTime = props.listContent.created_at; 
   return (
-    <Wrapper>
+    <Wrapper paddingLeft='0'>
       <Image src={user.image_url['30px']}></Image>
       <TitleLink href={url}>{postName}<div>{tagline}</div></TitleLink>
       <span>{votes_count}<Icon name='star' size='18px' /></span>

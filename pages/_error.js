@@ -2,6 +2,7 @@ import React from 'react'
 import { OAUTH_USER_URL,USER_API_KEY,REDIRECT_URL } from '../utility/api'
 import { AnimatedButton } from '../styles/components/Button';
 import { Wrapper,Info } from '../styles/components/Error';
+import { Heading } from '../styles/components/Headings';
 export default class Error extends React.Component {
   static getInitialProps({ res, jsonPageRes }) {
     const statusCode = res
@@ -15,13 +16,14 @@ export default class Error extends React.Component {
     if (status === '401') {
       return (
         <Wrapper>
-          <h1>You Need to Login in to see your feed</h1>
+          <Heading fontSize='0.3rem'>You Need to Login in to see your feed</Heading>
           <Info>We Need To Authorized By Official Produnt Hunt API</Info>
           <Info>We Are Not Accessing your Personal Information</Info>
           <AnimatedButton 
             href="/login" 
-            padding='0.8em'
-            margin='20px'
+            padding='0.3rem'
+            margin='0.3rem'
+            size='0.5rem'
             href={`${OAUTH_USER_URL}authorize?client_id=${USER_API_KEY}&redirect_uri=${REDIRECT_URL}&response_type=code&scope=public+private`}
           >Login</AnimatedButton>  
         </Wrapper>
@@ -35,8 +37,8 @@ export default class Error extends React.Component {
             <h1>An Error Has Occurred</h1>
             <AnimatedButton 
               href="/login" 
-              padding='0.8em'
-              margin='20px'
+              padding='0.8rem'
+              margin='0.3rem'
               href='/'
             >Return to Home Page</AnimatedButton>  
         </Wrapper>

@@ -9,7 +9,7 @@ const Link = styled.a.attrs({
 const TitleLink = Link.extend`
 	display: inline-block;
 	margin: 0 10px;
-	width: 400px;
+	// width: 400px;
 	text-align: center;
 	text-overflow: ellipsis;
 	white-space: nowrap;
