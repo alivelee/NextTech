@@ -21,9 +21,9 @@ export default class Error extends React.Component {
           <Info>We Are Not Accessing your Personal Information</Info>
           <AnimatedButton 
             href="/login" 
-            padding='0.3rem'
-            margin='0.3rem'
-            size='0.5rem'
+            padding='0.2rem'
+            margin='0.2rem'
+            size='0.4rem'
             href={`${OAUTH_USER_URL}authorize?client_id=${USER_API_KEY}&redirect_uri=${REDIRECT_URL}&response_type=code&scope=public+private`}
           >Login</AnimatedButton>  
         </Wrapper>

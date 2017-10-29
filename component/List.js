@@ -7,7 +7,7 @@ import { TitleLink } from '../styles/components/Link';
 import Icon from '../styles/components/Icon';
 import { Image } from '../styles/components/image';
 const Wrapper = styled.section.attrs({
-  paddingLeft: props => props.paddingLeft || '0.3rem'
+  paddingleft: props => props.paddingleft || '0.3rem'
 })`
   font-size: 0.2rem;
   width: 100%;
@@ -16,7 +16,7 @@ const Wrapper = styled.section.attrs({
   margin: 0.2rem;
   position:relative;
   // min-height: 300px;
-  padding-left: ${props => props.paddingLeft};
+  padding-left: ${props => props.paddingleft};
   vertical-align:middle;
   box-shadow: ${CardShadow.spread};
 `;
@@ -80,7 +80,7 @@ const PostList = (props) => {
   let commentsNumber = props.listContent.comments_count;
   let createTime = props.listContent.created_at; 
   return (
-    <Wrapper paddingLeft='0'>
+    <Wrapper paddingleft='0'>
       <Image src={user.image_url['30px']}></Image>
       <TitleLink href={url}>{postName}<div>{tagline}</div></TitleLink>
       <span>{votes_count}<Icon name='star' size='18px' /></span>
