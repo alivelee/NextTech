@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { CardShadow } from '../styles/theme';
 import { TitleLink } from '../styles/components/Link';
 import Icon from '../styles/components/Icon';
-import { Image } from '../styles/components/image';
+import { Image, UserImage } from '../styles/components/image';
 const Wrapper = styled.section.attrs({
   paddingleft: props => props.paddingleft || '0.3rem'
 })`
@@ -36,14 +36,22 @@ const Info = styled.div`
     }
   }
 `;
+const PostInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 0.1rem;
+`;
 const PostNumber = styled.div`
   line-height: 30px;
   height: 30px;
   display: inline-block;
   vertical-align: baseline;
 `;
-const Time = styled.div`
-  text-align: right;
+const Time = styled.div.attrs({
+  textalign: props => props.textalign || 'right'
+})`
+  text-align: ${props => props.textalign};
   .people {
     margin-left: 0.4rem;
   }
@@ -51,6 +59,16 @@ const Time = styled.div`
 const Description = styled.div`
   font-size: 0.2rem;
   color: #3A454F;
+`;
+const PostWrapper = Wrapper.extend`
+  display: flex;
+  align-items: center;
+`;
+const PostTime = Time.extend`
+  margin: 0.1rem 0;
+`;
+const PostDescription = Description.extend`
+  margin: 0.1rem 0;
 `;
 const List = (props) => {
   let { name, subscriber_count,title } = props.listContent;
@@ -80,12 +98,14 @@ const PostList = (props) => {
   let commentsNumber = props.listContent.comments_count;
   let createTime = props.listContent.created_at; 
   return (
-    <Wrapper paddingleft='0'>
-      <Image src={user.image_url['30px']}></Image>
-      <TitleLink href={url}>{postName}<div>{tagline}</div></TitleLink>
-      <span>{votes_count}<Icon name='star' size='18px' /></span>
-      <Time><Icon name='event' size='18px' />{formatDate(createTime)}</Time>
-    </Wrapper>
+    <PostWrapper paddingleft='0'>
+      <Image src={user.image_url['100px']} width='80px' height='80px' margin='0.2rem' round></Image>
+      <PostInfo>
+        <TitleLink href={url} margin='0px'>{postName}</TitleLink>
+        <PostDescription>{tagline}</PostDescription>
+        <PostTime textalign='left'><span className='star'><Icon name='star' size='18px' margin='0 4px 0 0'/>{votes_count}</span><Icon name='query_builder' size='18px' margin='0 0.0625rem 0 0.15rem'/>{fromNow(createTime)} ago</PostTime>
+      </PostInfo>
+    </PostWrapper>
   )
 }
 export {

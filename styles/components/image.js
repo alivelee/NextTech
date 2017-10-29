@@ -1,8 +1,16 @@
 import styled from 'styled-components';
 import { CardShadow } from '../theme';
-const Image = styled.img`
+const Image = styled.img.attrs({
+  width: props => props.width || 'auto',
+  height: props => props.height || 'auto',
+  margin: props => props.margin || '0px'
+})`
   max-width: 100%;
   object-fit: cover;
+  width: ${props => props.width};
+  height: ${props => props.height};
+  border-radius: ${props => props.round ? '50%' : '0px'};
+  margin: ${props => props.margin}
 `;
 const TopicImage = Image.extend`
   max-width: none;

@@ -6,12 +6,13 @@ const IconFont = styled.i.attrs({
   top: props => props.top || '-2px',
   left: props => props.left || '0px',
   right: props => props.right || '0px',
-  bottom: props => props.bottom || '0px'
+  bottom: props => props.bottom || '0px',
+  margin: props => props.margin || '0px'
 })`
   font-size:${props => props.fontSize};
   display: inline-block;
   text-align: right; 
-  margin-right: 5px;
+  margin: ${props => props.margin};
   vertical-align: middle;
   position: relative;
   top: ${props => props.top};
@@ -29,7 +30,8 @@ const Icon = (props) => {
       top={props.top}
       left={props.left}
       right={props.right}
-      bottom={props.bottom}  
+      bottom={props.bottom}
+      margin={props.margin}  
     >{props.name}</IconFont>
   )
 }
