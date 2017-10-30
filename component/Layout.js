@@ -35,7 +35,7 @@ export default class Layout extends React.Component {
     
     return (
       <Wrapper>
-        { ( this.state.devicesWidth <= 750 ) && <NavTrigger /> }
+        { ( this.state.devicesWidth <= 750 ) && <NavTrigger fromType={this.props.fromType}/> }
         { ( this.state.devicesWidth > 750 ) && <NavBar fromType={this.props.fromType} />}
         <Container>
           <MainContent padding={this.props.padding}>

@@ -4,17 +4,17 @@ import { UserImage } from '../styles/components/image';
 import { CardShadow } from '../styles/theme';
 import Icon from '../styles/components/Icon';
 const Card = styled.div`
-  width: 500px;
+  width: 80%;
   box-shadow: ${CardShadow.basic};
   display: flex;
   flex-direction: column;
-  font-size: 16px;
-  margin: 100px auto;
+  font-size: 0.25rem;
+  margin: 1rem auto;
 `;
 const Info = styled.div`
   width: 100%;
-  padding: 2em;
-  font-size: 1rem;
+  padding: 0.2rem;
+  font-size: 0.25rem;
   line-height: 1.5;
   div {
     margin: 10px 0;
@@ -37,12 +37,12 @@ const UserComponent = (props) => {
   let username = user.name;
   return (
     <Card>
-      <UserImage src={user.image_url['80px']}/>
+      <UserImage src={user.image_url['80px']} round/>
       <Info>
         <div><Icon name='account_circle' />Name: <Tag>{user.name}</Tag></div>
         <div><Icon name='contact_mail' />Email: <Tag>{user.email}</Tag></div>
         <div><Icon name='business' />Headline: <Tag>{user.headline}</Tag></div>
-        <div>Followed Topic: <Tag>{user.followed_topics_count}</Tag></div>
+        <div><Icon name='playlist_add' />Followed Topic: <Tag>{user.followed_topics_count}</Tag></div>
         <div><Icon name='person' size='18px' />Followers <Tag>{user.followers_count}</Tag></div>
         <div><Icon name='person' size='18px' />Following <Tag>{user.followings_count}</Tag></div>
       </Info>
