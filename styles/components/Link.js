@@ -10,7 +10,7 @@ const TitleLink = Link.extend.attrs({
 	margin: props => props.margin || '0 10px',
 	fontSize: props => props.fontSize || '0.25rem'
 })`
-	display: inline-block;
+	display: block;
 	margin: ${props => props.margin};
 	// width: 400px;
 	text-align: ${props => props.center ? 'center' : 'left'};

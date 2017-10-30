@@ -7,7 +7,8 @@ import { TitleLink } from '../styles/components/Link';
 import Icon from '../styles/components/Icon';
 import { Image, UserImage } from '../styles/components/image';
 const Wrapper = styled.section.attrs({
-  paddingleft: props => props.paddingleft || '0.3rem'
+  paddingleft: props => props.paddingleft || '0.3rem',
+  paddingright: props => props.paddingright || '0.3rem'
 })`
   font-size: 0.2rem;
   width: 100%;
@@ -17,13 +18,19 @@ const Wrapper = styled.section.attrs({
   position:relative;
   // min-height: 300px;
   padding-left: ${props => props.paddingleft};
+  padding-right: ${props => props.paddingright};
   vertical-align:middle;
   box-shadow: ${CardShadow.spread};
+  flex: 1 1 5rem;
+  flex-direction: column;
+  flex-wrap: wrap;
 `;
 const Info = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  flex-direction: column;
+  margin: 0.2rem 0;
   @media (max-width: 1080px) {
     flex-direction: column;
     align-items: flex-start;
@@ -45,8 +52,7 @@ const PostInfo = styled.div`
 const PostNumber = styled.div`
   line-height: 30px;
   height: 30px;
-  display: inline-block;
-  vertical-align: baseline;
+  display: block;
 `;
 const Time = styled.div.attrs({
   textalign: props => props.textalign || 'right'
@@ -59,6 +65,7 @@ const Time = styled.div.attrs({
 const Description = styled.div`
   font-size: 0.2rem;
   color: #3A454F;
+  margin: 0.3rem 0;
 `;
 const PostWrapper = Wrapper.extend`
   display: flex;
@@ -81,10 +88,10 @@ const List = (props) => {
     <Wrapper>
       {/* { backgroundImage && <CollectionImage src={backgroundImage} alt="image-for-collection"/>} */}
       <Info>
-        <PostNumber><Icon size='24px' name='class' />{postCount} {postCount > 1 ? 'Posts': 'Post'}</PostNumber>
-        <TitleLink href={link} >{name}</TitleLink>
+        <PostNumber><Icon size='20px' name='class' margin='0 2px 0 0'/>{postCount} {postCount > 1 ? 'Posts': 'Post'}</PostNumber>
+        <TitleLink href={link} margin='0.2rem 0 0.2rem 0'>{name}</TitleLink>
         <Description>{title}</Description>
-        <Time className='time'><Icon name='event' size='24px' />{fromNow(createTime)} ago <span><span className='people'>{subscriber_count} People Followed</span></span></Time>
+        <Time className='time' textalign='left'><Icon name='event' size='20px' margin='0 2px 0 0'/>{fromNow(createTime)} ago <span><span className='people'>{subscriber_count} People Followed</span></span></Time>
         {/* <div>update at {formatDate(updateTime)}</div> */}
       </Info>
     </Wrapper>

@@ -10,14 +10,14 @@ const Image = styled.img.attrs({
   width: ${props => props.width};
   height: ${props => props.height};
   border-radius: ${props => props.round ? '50%' : '0px'};
-  margin: ${props => props.margin}
+  margin: ${props => props.margin};
 `;
 const TopicImage = Image.extend`
   max-width: none;
-  width: calc(100% + 60px);
-  min-height: 100%;
+  width: calc(100% + 0.9rem);
+  height: 100%;
   opacity: 0.3;
-  transform: translate3d(-40px,0,0);
+  transform: translate3d(-0.6rem,0,0);
   transition: transform 0.4s;
 `;
 const CollectionImage = Image.extend`

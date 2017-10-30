@@ -17,10 +17,10 @@ const TopicInfoWrapper = styled.figcaption`
   transition: background-color 0.5s;
 `;
 const TopicInfo = styled.div`
-  transform: translate3d(0,200px,0);
+  transform: translate3d(0,2rem,0);
   transition: transform 0.4s ease-in-out;
   text-align: center;
-  padding: 0 2em;  
+  padding: 0 0.5rem;  
 `;
 const TopicLink = styled.a`
   z-index: 1000;
@@ -29,21 +29,24 @@ const TopicLink = styled.a`
   font-size: 0;
   opacity: 0;
 `;
-const Name = styled.h3`
-  transform: translate3d(0,20px,0);
+const Name = styled.div`
+  transform: translate3d(0,0.3rem,0);
   transition: transform 0.35s, color 0.4s;
   color: grey;
   font-weight: 100;
   align-self: center;
+  font-size: 0.4rem;
+  margin: 0.1rem 0 0.2rem 0;
 `;
 const Time = styled.div`
-  margin-top: 30px;
+  margin-top: 0.4rem;
   opacity:0;
   transition: opacity 0.4s;
   letter-spacing: 1px;
   span {
     color:white;
   }
+  font-size: 0.25rem;
 `;
 const Others = styled.div`
   opacity:0;
@@ -53,7 +56,8 @@ const Description = styled.div`
   opacity:0;
   transition: all 0.6s;
   line-height: 1.5;
-  margin: 10px 0;
+  margin: 0.1rem 0;
+  font-size: 0.25rem;
 `;
 const TopicItem = (props) => {
   let { name, description } = props.topic;
@@ -65,10 +69,10 @@ const TopicItem = (props) => {
   const Topic = styled.figure`
     position: relative;
     // max-width: 390px;
-    max-height: 450px;
+    max-height: 7rem;
     cursor: pointer;
     background: ${theme.topicHover};
-    flex: 1 1 300px;
+    flex: 1 1 5rem;
     margin: 20px 1%;
     overflow: hidden;
     span {

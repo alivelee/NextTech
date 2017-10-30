@@ -10,7 +10,6 @@ const MainContent = styled.section.attrs({
   justify-content: center;
   padding: ${props => props.padding};
   background-color: ${props => props.backgroundColor};
-  margin-top: 1.3rem;
   margin-left: auto;
   margin-right: auto;
   // border-top: 1px solid #F1F1F1;
