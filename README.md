@@ -1,6 +1,8 @@
 # NextTech
 A third-party Product Hunt Web Client Based On Next.js
 
+![](https://i.imgur.com/aokFwoU.png)
+![](https://i.imgur.com/Z1YEBzh.png)
 ## Get Started
 
 If you havn't installed `npm` on your machine, you need to install it or you can use `nvm` to install
