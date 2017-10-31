@@ -105,7 +105,7 @@ const PostList = (props) => {
   let commentsNumber = props.listContent.comments_count;
   let createTime = props.listContent.created_at; 
   return (
-    <PostWrapper paddingleft='0'>
+    <PostWrapper paddingleft='0' paddingright='0'>
       <Image src={user.image_url['100px']} width='80px' height='80px' margin='0.2rem' round></Image>
       <PostInfo>
         <TitleLink href={url} margin='0px'>{postName}</TitleLink>
