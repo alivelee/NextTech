@@ -30,4 +30,5 @@ Open `localhost:3001` to see the effect
 
 * Use Docker to depoly
 * expect more Api support from the official
+* Add Search Component
 
